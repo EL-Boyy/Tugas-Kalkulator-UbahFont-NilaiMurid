@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customize Text</title>
+<link rel="stylesheet" href="cssgantifont.css">
+<style>
+    body {
+        background-color: #292727; /* Set background color to abu abu */
+        color: white; /* Set text color to white */
+    }
+
+    #text-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #text-input {
+        width: 80%;
+        height: 50px;
+        font-size: 20px;
+        padding: 5px;
+        margin-bottom: 20px;
+        border-radius: 25px; /* Set border-radius menjadi setengah dari tinggi */
+        border: none; /* Hapus border */
+        outline: none; /* Hapus outline */
+        text-align: center; /* Pusatkan teks di dalam input */
+        opacity: 0; /* Mulai dari tidak terlihat */
+        animation: fadeInText 3s ease-in-out forwards; /* Animasi muncul perlahan */
+    }
+
+    @keyframes fadeInText {
+        0% {
+            opacity: 0; /* Mulai dari tidak terlihat */
+        }
+        100% {
+            opacity: 1; /* Muncul secara perlahan */
+        }
+    }
+
+    .font-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Animasi perubahan warna saat hover */
+        border-radius: 7px; /* Membuat tombol berbentuk oval */
+        background-color: white; /* Warna dasar tombol putih */
+        opacity: 0; /* Mulai dari tidak terlihat */
+        animation: fadeInButtons 3s ease-in-out forwards; /* Animasi muncul perlahan */
+    }
+
+    .font-buttons {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Animasi perubahan warna saat hover */
+        border-radius: 7px; /* Membuat tombol berbentuk oval */
+        background-color: #858788; /* Warna dasar tombol putih */
+        opacity: 0; /* Mulai dari tidak terlihat */
+        animation: fadeInButtons 3s ease-in-out forwards; /* Animasi muncul perlahan */
+    }
+
+    @keyframes fadeInButtons {
+        0% {
+            opacity: 0; /* Mulai dari tidak terlihat */
+        }
+        100% {
+            opacity: 1; /* Muncul secara perlahan */
+        }
+    }
+
+    .font-button:hover {
+        background-color: #303030; /* Warna saat hover */
+    }
+
+    .font-buttons:hover {
+        background-color: #303030; /* Warna saat hover */
+    }
+
+    .color-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 5px;
+        cursor: pointer;
+        transition: transform 0.3s, opacity 0.5s; /* Animasi saat hover */
+        opacity: 0; /* Mulai dari tidak terlihat */
+        animation: fadeInButtons 3s ease-in-out forwards; /* Animasi muncul perlahan */
+    }
+
+    .color-button:hover {
+        transform: scale(1.2); /* Perbesar tombol saat hover */
+    }
+
+    .button-container {
+        display: flex; /* Membuat kontainer menjadi flexbox */
+        justify-content: space-between; /* Menyusun item secara merata di sepanjang kontainer */
+        padding-top: 100px; /* Menambahkan jarak ke bawah */
+    }
+    
+    .button-container button {
+        margin: 10; /* Menghapus margin agar tombol bersentuhan */
+    }
+
+    .large-button {
+        font-size: 15px; /* Perbesar ukuran font */
+        padding: 8px 15px; /* Perbesar ukuran padding */
+    }
+</style>
+</head>
+<body>
+    
+<div id="text-container">
+    <input type="text" id="text-input" placeholder="Enter text here">
+    <br>
+    <button class="font-button" onclick="setFont('Arial')">Arial</button>
+    <button class="font-button" onclick="setFont('Times New Roman')">Times New Roman</button>
+    <button class="font-button" onclick="setFont('Courier New')">Courier New</button>
+    <br>
+    <button class="color-button" style="background-color: black" onclick="setColor('black')"></button>
+    <button class="color-button" style="background-color: red" onclick="setColor('red')"></button>
+    <button class="color-button" style="background-color: blue" onclick="setColor('blue')"></button>
+    <button class="color-button" style="background-color: green" onclick="setColor('green')"></button>
+    <button class="color-button" style="background-color: yellow" onclick="setColor('yellow')"></button>
+    <button class="color-button" style="background-color: orange" onclick="setColor('orange')"></button>
+</div>
+
+<script>
+    function setFont(font) {
+        document.getElementById("text-input").style.fontFamily = font;
+    }
+
+    function setColor(color) {
+        document.getElementById("text-input").style.color = color;
+    }
+</script>
+
+<div class="button-container">
+    <button class="font-buttons large-button" onclick="window.location.href = 'Kalkulator.html';">Kalkulator</button>
+    <button class="font-buttons large-button"onclick="window.location.href = 'index.html';">Home</button>
+    <button class="font-buttons large-button" onclick="window.location.href = 'AgusKangMintakHospot.html';">Nilai Murid</button>
+</div>
+
+</body>
+</html>

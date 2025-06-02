@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #292727; /* Ubah warna latar belakang */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #858788; /* Ubah warna menjadi abu-abu */
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Ubah font */
+            animation: fadeIn 3s ease; /* Animasi untuk judul */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%; /* Buat tabel memenuhi lebar layar */
+            margin-top: 20px;
+            animation: fadeIn 3s ease; /* Animasi untuk tabel */
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            color: white; /* Ubah warna teks menjadi putih */
+        }
+
+        th {
+            background-color: #858788; /* Ubah warna latar belakang header */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #292727; /* Ubah warna latar belakang input */
+            color: black; /* Ubah warna teks menjadi hitam */
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #858788;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            animation: fadeIn 3s ease; /* Animasi untuk tombol */
+        }
+
+        .button:hover {
+            background-color: #303030;
+        }
+
+        .buttons {
+            position: absolute;
+            bottom: 120px;
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box; /* Menyertakan padding dalam perhitungan lebar */
+            background-color: #292727; /* Ubah warna latar belakang */
+            animation: fadeIn 3s ease; /* Animasi untuk container tombol */
+        }
+
+        /* Gaya untuk tombol khusus */
+        .special-button {
+            padding: 10px 20px;
+            background-color: #858788;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Gaya saat tombol khusus dihover */
+        .special-button:hover {
+            background-color: #303030;
+        }
+
+        /* Animasi untuk masuk ke link */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+    <title>Penilaian Murid</title>
+</head>
+<body>
+
+<div id="container">
+    <h2 id="title">Penilaian Murid</h2>
+    <table id="result">
+        <tr>
+            <th>Nama Murid</th>
+            <th>Hasil Penilaian</th>
+        </tr>
+    </table>
+</div>
+
+
+<script>
+    var container = document.getElementById('container');
+    var resultTable = document.getElementById('result');
+    
+    function evaluateGrades() {
+        var nama = prompt("Masukkan nama murid:");
+        if (nama !== null) {
+            var nilai = prompt("Masukkan nilai murid:");
+            if (nilai !== null) {
+                nilai = parseInt(nilai);
+                if (!isNaN(nilai)) {
+                    var newRow = resultTable.insertRow();
+                    var namaCell = newRow.insertCell(0);
+                    var nilaiCell = newRow.insertCell(1);
+                    namaCell.textContent = nama;
+                    if (nilai >= 90) {
+                        nilaiCell.textContent = "Baik Sekali";
+                    } else if (nilai >= 80) {
+                        nilaiCell.textContent = "Baik";
+                    } else if (nilai >= 70) {
+                        nilaiCell.textContent = "Cukup";
+                    } else {
+                        nilaiCell.textContent = "Kurang";
+                    }
+                    if (confirm("Apakah Anda ingin menilai murid lain?")) {
+                        evaluateGrades();
+                    }
+                } else {
+                    alert("Masukkan angka yang valid!");
+                    evaluateGrades();
+                }
+            }
+        }
+    }
+</script>
+<div class="buttons">
+    <!-- Menambahkan class "special-button" untuk tombol -->
+    <button onclick="window.location.href = 'PWPB Ganti Font dan Warna.html';" class="special-button">Font</button>
+    <!-- Menambahkan class "special-button" untuk tombol -->
+    <button class="button button-left" onclick="evaluateGrades()">Input</button>
+    <button onclick="window.location.href = 'index.html';" class="special-button">Home</button>
+</div>
+
+</body>
+</html>

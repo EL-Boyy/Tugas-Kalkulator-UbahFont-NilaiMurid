@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #292727; /* Warna abu-abu */
+        color: rgb(255, 255, 255);
+        opacity: 0; /* Atur opasitas elemen-elemen halaman menjadi 0 */
+        animation: fadeIn 3s forwards; /* Animasi untuk membuat elemen-elemen muncul secara perlahan */
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0; /* Mulai dari opasitas 0 */
+        }
+        to {
+            opacity: 1; /* Berakhir dengan opasitas 1 */
+        }
+    }
+    
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    input[type="number"] {
+        width: 100px;
+        padding: 5px;
+        margin: 5px;
+    }
+    select, button {
+        padding: 5px;
+        margin: 5px;
+    }
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: rgb(0, 0, 0);
+    }
+    
+    /* CSS khusus untuk tombol di dalam button-container */
+    .button-container button {
+        padding: 10px 12px; /* Atur ukuran sesuai kebutuhan */
+        margin: 120px;
+        width: 80px;
+        transition: background-color 0.3s; /* Animasi perubahan warna saat hover */
+    }
+    
+    .special-button {
+        background-color: #858788; /* Warna default tombol */
+    }
+    
+    .special-button:hover {
+        background-color: #303030; /* Warna saat hover */
+    }
+    
+    #judul {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+    #hasil {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1 id="judul">Kalkulator</h1>
+    <input type="number" id="angka1">
+    <select id="operasi">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">x</option>
+        <option value="/">:</option>
+    </select>
+    <input type="number" id="angka2">
+    <button onclick="hitung()">=</button>
+    <div id="hasil"></div>
+
+    <!-- Tombol-tombol operasi -->
+    <button onclick="setOperasi(this, '+')">+</button>
+    <button onclick="setOperasi(this, '-')">-</button>
+    <button onclick="setOperasi(this, '*')">x</button>
+    <button onclick="setOperasi(this, '/')">:</button>
+</div>
+
+<script>
+    function hitung() {
+        var angka1 = parseFloat(document.getElementById('angka1').value);
+        var angka2 = parseFloat(document.getElementById('angka2').value);
+        var operasi = document.getElementById('operasi').value;
+        var hasil;
+
+        if (isNaN(angka1) || isNaN(angka2)) {
+            document.getElementById('hasil').innerText = 'Masukkan Angka Dulu!!!';
+            return;
+        }
+
+        switch (operasi) {
+            case '+':
+                hasil = angka1 + angka2;
+                break;
+            case '-':
+                hasil = angka1 - angka2;
+                break;
+            case '*':
+                hasil = angka1 * angka2;
+                break;
+            case '/':
+                if (angka2 != 0) {
+                    hasil = angka1 / angka2;
+                } else {
+                    hasil = 'Error (Division by zero)';
+                }
+                break;
+            default:
+                hasil = 'Operasi tidak valid';
+                break;
+        }
+
+        document.getElementById('hasil').innerText = 'Hasil: ' + hasil;
+    }
+
+    function setOperasi(button, operasi) {
+        document.getElementById('operasi').value = operasi;
+        button.style.backgroundColor = "#87CEFA"; // Ubah warna tombol saat ditekan
+        setTimeout(function() {
+            button.style.backgroundColor = ""; // Kembalikan warna tombol ke warna asal setelah 300 milidetik
+        }, 300);
+    }
+</script>
+    <div class="button-container">
+        <!-- Menambahkan class "special-button" untuk tombol -->
+        <button onclick="window.location.href = 'index.html';" class="special-button" style="float: left;">Home</button>
+        <!-- Menambahkan class "special-button" untuk tombol -->
+        <button onclick="window.location.href = 'PWPB Ganti Font dan Warna.html';" class="special-button" style="float: right;">Font</button>
+    </div>
+</body>
+</html>

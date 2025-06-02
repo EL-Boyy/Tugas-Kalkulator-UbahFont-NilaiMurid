@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 18+</title>
+    <style>
+        /* CSS untuk menyembunyikan tampilan durasi video */
+        video::-webkit-media-controls-time-remaining-display,
+        video::-webkit-media-controls-current-time-display {
+            display: none !important;
+        }
+
+        /* CSS untuk mengubah warna latar belakang menjadi hitam */
+        body {
+            background-color: black;
+            margin: 0; /* Menghilangkan margin default */
+            padding: 0; /* Menghilangkan padding default */
+        }
+
+        /* CSS untuk mengatur posisi video di tengah */
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px; /* Sesuaikan lebar video */
+            height: 610px; /* Sesuaikan tinggi video */
+        }
+    </style>
+</head>
+<body>
+    <video controls loop id="myVideo" src="images/Y2meta.app - Rick Roll (Different link   no ads).mp4"></video>
+
+    <script>
+        window.onload = function() {
+            var video = document.getElementById('myVideo');
+            video.play();
+        }
+    </script>
+</body>
+</html>
